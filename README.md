@@ -1,5 +1,5 @@
 # GitHub stats
-Open multiple urls from text
+Open multiple URLs from text
 
 ## Try it
 https://andreasarvidsson.github.io/open-urls/
