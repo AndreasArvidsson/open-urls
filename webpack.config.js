@@ -8,14 +8,11 @@ module.exports = (env, argv) => {
     console.log(" ", argv.mode);
     console.log("----------------------------\n")
 
-    const isProd = argv.mode === "production";
-    const filename = isProd ? "[contenthash]" : "[name]";
-
     return {
         entry: path.resolve(__dirname, "index.js"),
         output: {
             path: path.resolve(__dirname, "docs"),
-            filename: filename + ".js"
+            filename: "index.js"
         },
         module: {
             rules: [
@@ -48,7 +45,7 @@ module.exports = (env, argv) => {
                     test: /\.(eot|woff|woff2|ttf|svg)$/,
                     loader: "file-loader",
                     options: {
-                        name: filename + ".[ext]"
+                        name: "[name].[ext]"
                     }
                 }
             ]
@@ -59,7 +56,7 @@ module.exports = (env, argv) => {
             }),
             //Extract css styles as external file.
             new MiniCssExtractPlugin({
-                filename: filename + ".css"
+                filename: "styles.css"
             })
         ]
     };
